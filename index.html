@@ -10,17 +10,22 @@
     </head>
     <body>
         <header>
-            <input id="ricerca" type="text" name="" value="" placeholder="Cerca film o Serie">
+            <input id="ricerca" placeholder="Cerca Film o Serie">
             <button type="button" name="button">FIND</button>
         </header>
         <div class="container">
-            <div class="gabbia"></div>
+            <div class="gabbia">
+            </div>
         </div>
 
-
-
-
-
+        <script id="template-scheda" type="text/x-handlebars-template">
+            <div class="scheda" data-genere="{{genere}}">
+                <img src="{{immagineAlbum}}" alt="{{immagineAlbum}}">
+                <h4></h4>
+                <span></span>
+                <span><small></small></span>
+            </div>
+        </script>
 
         <script src="js/main.js" charset="utf-8"></script>
     </body>
