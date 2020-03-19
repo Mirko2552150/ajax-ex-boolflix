@@ -4,6 +4,7 @@
 $("button").click(function(){
     var inputFilm = $("#ricerca").val(); // prendo il valore del INPUT ricerca
     var linguaIta = "it-IT"; // variabile lingua
+
     $('#ricerca').val(''); // cancello subito dopo il campo ricerca
     getFilm(inputFilm, linguaIta);
 });
@@ -43,7 +44,7 @@ function getFilm(inputF, lingua){
         method: "GET",
         success: function (data) {
             // console.log(data); // il contenuto della risposta
-            // console.log(data.results); // il contenuto di results
+            console.log(data.results); // il contenuto di results
             var films = data.results; // assegno FILMS al plurale
             for (var i = 0; i < films.length; i++) { // ciclo su tutto l'arrey di risposta e assegno il singolo FILM
                 var film = films[i];
@@ -52,17 +53,15 @@ function getFilm(inputF, lingua){
                     // console.log(filmTemplate.voto); // stampo i voti dei film cercati
                     var valutazioneStelle = Math.ceil(film.vote_average / 2);
                     // console.log(valutazioneStelle);
-                    var stelle = ''; // creo Var stelle
+                    var stelle = ''; // creo Var stelle vuota
                     for (var i = 1; i <= 5; i++) { // faccio 5 cicli = al numero di stelline
                         // console.log(i);
                         if (i <= valutazioneStelle) { // fino a che i è min o ug alla valutazione stampa stellina piena
                             var stella = '<i class="fas fa-star"></i>';
-                            console.log(stella);
                         } else {
                             var stella = '<i class="far fa-star"></i>'; // dopo  stampa stellina vuota
-                            console.log("b");
                         }
-                        stelle += stella; // aggiunge le stelle uno accanto all'altra
+                        stelle += stella; // aggiunge alla var stelle le icone uno accanto all'altra con +=
                     }
                     console.log(stella);
                     var filmTemplate = {
@@ -73,7 +72,8 @@ function getFilm(inputF, lingua){
                         dataRilascio: film.release_date,
                         valutazione: film.vote_average,
                         genere: film.genre_ids,
-                        voto: stelle
+                        voto: stelle,
+                        overview: film.overview
                     };
                     // console.log(filmTemplate);
                     var templatePop = template(filmTemplate); // popolo con il template con le le chiavi degli oggetti(album)

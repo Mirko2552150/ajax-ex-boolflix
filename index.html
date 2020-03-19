@@ -20,15 +20,17 @@
 
         <script id="template-film" type="text/x-handlebars-template">
             <div class="scheda">
-                <img src="{{locandina}}" alt="{{locandina}}">
+                <div class="img-box">
+                    <img src="https://image.tmdb.org/t/p/w500/{{locandina}}" alt="https://image.tmdb.org/t/p/w500/{{locandina}}">
+                </div>
                 <div class="overlay">
-                    <h1>{{{voto}}}</h1>
+                    <small>{{titolo}}</small>
+                    <small>{{titoloOriginale}}</small>
+                    <small>{{{voto}}}</small>
+                    <small>{{{overview}}}</small>
                 </div>
             </div>
         </script>
-
-
-
 
         <script src="js/main.js" charset="utf-8"></script>
     </body>
