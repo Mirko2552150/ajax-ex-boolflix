@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>BOOLFLIX</title>
-
+        <script src="https://kit.fontawesome.com/e28dfdf91d.js" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
         <link rel="stylesheet" href="css/style.css">
@@ -18,14 +18,17 @@
             </div>
         </div>
 
-        <script id="template-scheda" type="text/x-handlebars-template">
-            <div class="scheda" data-genere="{{genere}}">
-                <img src="{{immagineAlbum}}" alt="{{immagineAlbum}}">
-                <h4></h4>
-                <span></span>
-                <span><small></small></span>
+        <script id="template-film" type="text/x-handlebars-template">
+            <div class="scheda">
+                <img src="{{locandina}}" alt="{{locandina}}">
+                <div class="overlay">
+                    <h1>{{{voto}}}</h1>
+                </div>
             </div>
         </script>
+
+
+
 
         <script src="js/main.js" charset="utf-8"></script>
     </body>
