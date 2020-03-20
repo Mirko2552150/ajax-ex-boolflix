@@ -3,10 +3,13 @@
 
 $("button").click(function(){
     var inputFilm = $("#ricerca").val(); // prendo il valore del INPUT ricerca
-    var linguaIta = "it-IT"; // variabile lingua
+    var linguaIta = "it-IT"; // variabile linguaB
+    var dataBaseFilm = "https://api.themoviedb.org/3/search/movie";
+    var dataBaseSerie = "https://api.themoviedb.org/3/search/tv";
 
     $('#ricerca').val(''); // cancello subito dopo il campo ricerca
-    getFilm(inputFilm, linguaIta);
+    getFilm(inputFilm, linguaIta, dataBaseFilm); // cerca FILM
+    getFilm(inputFilm, linguaIta, dataBaseSerie); // poi Serie
 });
 
 var source =  $('#template-film').html();  // con JQ inserisco ID template creato in HTML
@@ -33,9 +36,9 @@ var template = Handlebars.compile(source);   // HB lo gestisce
 
 
 //FUNZIONI
-function getFilm(inputF, lingua){
+function getFilm(inputF, lingua, database){
     $.ajax({
-        url: "https://api.themoviedb.org/3/search/movie",
+        url: database,
         data: {
             api_key: "d87d7ade57c8a0d41eff8b91d540d707",
             query: inputF,
@@ -87,3 +90,20 @@ function getFilm(inputF, lingua){
         }
     });
 };
+//
+// function dataBaseFilm() {
+//     var filmTemplate = {
+//         locandina: film.poster_path, // chiave = alla chive poster raggiunta con il dot notation (oggetti)
+//         titolo: film.title,
+//         titoloOriginale: film.original_title,
+//         linguaOriginale: film.original_language,
+//         dataRilascio: film.release_date,
+//         valutazione: film.vote_average,
+//         genere: film.genre_ids,
+//         voto: stelle,
+//         overview: film.overview
+//     };
+//     // console.log(filmTemplate);
+//     var templatePop = template(filmTemplate); // popolo con il template con le le chiavi degli oggetti(album)
+//     $(".gabbia").append(templatePop); // inseriamo il ns Template popolato nell HTML
+// }

@@ -66,8 +66,8 @@ header {
 }
 
 .img-box:hover {
-    
     display: none;
+
 }
 
 .scheda i {
@@ -104,4 +104,5 @@ header button {
     align-items: center;
     position: absolute;
     z-index: 900;
+    
 }
