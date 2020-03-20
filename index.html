@@ -17,19 +17,34 @@
             <div class="gabbia">
             </div>
         </div>
-
+        <!-- template che serve sia per le serie che per il film -->
         <script id="template-film" type="text/x-handlebars-template">
             <div class="scheda">
                 <div class="img-box">
-                    <img src="https://image.tmdb.org/t/p/w500/{{locandina}}" alt="https://image.tmdb.org/t/p/w500/{{locandina}}">
+                    <img src="https://image.tmdb.org/t/p/w342/{{locandina}}" alt="https://image.tmdb.org/t/p/w500/{{locandina}}">
                 </div>
                 <div class="overlay">
-                    <small>{{titolo}}</small>
-                    <small>{{titoloOriginale}}</small>
-                    <small>{{{voto}}}</small>
-                    <small>{{overview}}</small>
+                    <div class="ov-lay uno">
+                        <strong>{{titolo}}{{titoloSerie}}</strong>
+                    </div>
+                    <div class="ov-lay due">
+                        <strong>{{titoloOriginale}}{{titoloSerieOriginale}}</strong>
+                    </div>
+                    <div class="ov-lay tre">
+                        <small>{{{voto}}}</small>
+                    </div>
+                    <div class="ov-lay quattro">
+                        <small>{{overview}}</small>
+                    </div>
+                    <div class="ov-lay cinque">
+                        <small>{{{linguaOriginale}}}</small>
+                    </div>
                 </div>
             </div>
+        </script>
+
+        <script id="template-placeholder" type="text/x-handlebars-template">
+            <img src="https://i2.wp.com/www.theatrecr.org/wp-content/uploads/2016/01/poster-placeholder.png?ssl=1" alt="https://i2.wp.com/www.theatrecr.org/wp-content/uploads/2016/01/poster-placeholder.png?ssl=1">
         </script>
 
         <script src="js/main.js" charset="utf-8"></script>

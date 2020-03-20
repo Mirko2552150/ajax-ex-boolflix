@@ -10,29 +10,15 @@ $("button").click(function(){
     $('#ricerca').val(''); // cancello subito dopo il campo ricerca
     getFilm(inputFilm, linguaIta, dataBaseFilm); // cerca FILM
     getFilm(inputFilm, linguaIta, dataBaseSerie); // poi Serie
+    $(".gabbia").html(""); // ci permette di rifare le ricerche senza aggiornare
+
 });
 
 var source =  $('#template-film').html();  // con JQ inserisco ID template creato in HTML
 var template = Handlebars.compile(source);   // HB lo gestisce
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+var source =  $('#template-placeholder').html();  // con JQ inserisco ID template creato in HTML
+var templatePlace = Handlebars.compile(source);   // HB lo gestisce
 
 
 //FUNZIONI
@@ -42,12 +28,12 @@ function getFilm(inputF, lingua, database){
         data: {
             api_key: "d87d7ade57c8a0d41eff8b91d540d707",
             query: inputF,
-            language: "lingua"
+            language: lingua
         },
         method: "GET",
         success: function (data) {
             // console.log(data); // il contenuto della risposta
-            console.log(data.results); // il contenuto di results
+            // console.log(data.results); // il contenuto di results
             var films = data.results; // assegno FILMS al plurale
             for (var i = 0; i < films.length; i++) { // ciclo su tutto l'arrey di risposta e assegno il singolo FILM
                 var film = films[i];
@@ -66,20 +52,86 @@ function getFilm(inputF, lingua, database){
                         }
                         stelle += stella; // aggiunge alla var stelle le icone uno accanto all'altra con +=
                     }
-                    console.log(stella);
-                    var filmTemplate = {
+                    // console.log(stella);
+
+                    var codiceLingueApi = film.original_language; // dato di risposta Api
+
+                    var lingue = [
+                        {
+                            lingua: "en",
+                            bandiera: '<img src="https://www.countryflags.io/gb/flat/64.png">'
+
+                        },
+                        {
+                            lingua: "it",
+                            bandiera: '<img src="https://www.countryflags.io/it/flat/64.png">'
+
+                        },
+                        {
+                            lingua: "de",
+                            bandiera: '<img src="https://www.countryflags.io/de/flat/64.png">'
+
+                        },
+                        {
+                            lingua: "fr",
+                            bandiera: '<img src="https://www.countryflags.io/fr/flat/64.png">'
+
+                        },
+                        {
+                            lingua: "zh",
+                            bandiera: '<img src="https://www.countryflags.io/ch/flat/64.png">'
+
+                        },
+                        {
+                            lingua: "ja",
+                            bandiera: '<img src="https://www.countryflags.io/jp/flat/64.png">'
+
+                        },
+                        {
+                            lingua: "ru",
+                            bandiera: '<img src="https://www.countryflags.io/ru/flat/64.png">'
+
+                        },
+                        {
+                            lingua: "pt",
+                            bandiera: '<img src="https://www.countryflags.io/pt/flat/64.png">'
+
+                        },
+                        {
+                            lingua: "es",
+                            bandiera: '<img src="https://www.countryflags.io/es/flat/64.png">'
+
+                        }
+                    ];
+                    var bandieraCheck = '<img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Missing_flag.png">';
+                    for (var i = 0; i < lingue.length; i++) {
+                        var linguaggio = lingue[i];
+                        console.log(linguaggio); // stampo oggetto che contiene lingua e bandiera
+                        var codiceLingua = linguaggio.lingua;
+                        console.log(linguaggio.lingua); // stampo oggetti
+                        var bandieraImg = linguaggio.bandiera;
+                        console.log(linguaggio.bandiera); // stampo chiavi oggetto
+                        if (codiceLingueApi == codiceLingua) {
+                            bandieraCheck = bandieraImg; // senza VAR perchè richiamiamo una VAR universale
+                        }
+
+                    }
+                    var filmSerieTemplate = {
                         locandina: film.poster_path, // chiave = alla chive poster raggiunta con il dot notation (oggetti)
                         titolo: film.title,
                         titoloOriginale: film.original_title,
-                        linguaOriginale: film.original_language,
+                        linguaOriginale: bandieraCheck,
                         dataRilascio: film.release_date,
                         valutazione: film.vote_average,
                         genere: film.genre_ids,
                         voto: stelle,
-                        overview: film.overview
+                        overview: film.overview,
+                        titoloSerie: film.name,
+                        titoloSerieOriginale: film.original_name
+
                     };
                     // console.log(filmTemplate);
-                    var templatePop = template(filmTemplate); // popolo con il template con le le chiavi degli oggetti(album)
+                    var templatePop = template(filmSerieTemplate); // popolo con il template con le le chiavi degli oggetti(album)
                     $(".gabbia").append(templatePop); // inseriamo il ns Template popolato nell HTML
 
                 });
@@ -90,20 +142,3 @@ function getFilm(inputF, lingua, database){
         }
     });
 };
-//
-// function dataBaseFilm() {
-//     var filmTemplate = {
-//         locandina: film.poster_path, // chiave = alla chive poster raggiunta con il dot notation (oggetti)
-//         titolo: film.title,
-//         titoloOriginale: film.original_title,
-//         linguaOriginale: film.original_language,
-//         dataRilascio: film.release_date,
-//         valutazione: film.vote_average,
-//         genere: film.genre_ids,
-//         voto: stelle,
-//         overview: film.overview
-//     };
-//     // console.log(filmTemplate);
-//     var templatePop = template(filmTemplate); // popolo con il template con le le chiavi degli oggetti(album)
-//     $(".gabbia").append(templatePop); // inseriamo il ns Template popolato nell HTML
-// }

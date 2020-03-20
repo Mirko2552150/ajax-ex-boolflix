@@ -71,8 +71,8 @@ header {
 }
 
 .scheda i {
-    color: black;
-    font-size: 30px;
+    color: gold;
+    font-size: 15px;
 
 }
 
@@ -104,5 +104,16 @@ header button {
     align-items: center;
     position: absolute;
     z-index: 900;
-    
+
+}
+
+.ov-lay {
+    width: 90%;
+    font-size: 14px;
+
+}
+
+.ov-lay img {
+    width: 30px;
+    height: 25px;
 }
