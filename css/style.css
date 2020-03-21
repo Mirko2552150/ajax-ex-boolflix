@@ -20,7 +20,7 @@ header {
 }
 
 .gabbia {
-    width: 80vw;
+    width: 100vw;
     min-height: 100vh;
     background-color: #494949;
     margin: 0 auto;
@@ -33,11 +33,10 @@ header {
 
 .scheda {
     /* flex-basis: 200px; */
-    width: 200px;
-    height: 280px;
+    width: 250px;
+    height: 350px;
     background-color: black;
-    border-radius: 5.5px;
-    margin: 10px;
+    margin: 2px;
     cursor: pointer;
     display: flex;
     flex-direction: column;
@@ -50,17 +49,15 @@ header {
 
 
 .img-box img {
-    width: 200px;
-    height: 280px;
-    border-radius: 5.5px;
+    width: 250px;
+    height: 350px;
     z-index: 999;
 
 }
 
 .img-box {
-    width: 200px;
-    height: 280px;
-    border-radius: 5.5px;
+    width: 250px;
+    height: 350px;
     z-index: 999;
 }
 

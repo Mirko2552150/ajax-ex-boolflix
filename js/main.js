@@ -105,18 +105,27 @@ function getFilm(inputF, lingua, database){
                     var bandieraCheck = '<img src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Missing_flag.png">';
                     for (var i = 0; i < lingue.length; i++) {
                         var linguaggio = lingue[i];
-                        console.log(linguaggio); // stampo oggetto che contiene lingua e bandiera
+                        // console.log(linguaggio); // stampo oggetto che contiene lingua e bandiera
                         var codiceLingua = linguaggio.lingua;
-                        console.log(linguaggio.lingua); // stampo oggetti
+                        // console.log(linguaggio.lingua); // stampo oggetti
                         var bandieraImg = linguaggio.bandiera;
-                        console.log(linguaggio.bandiera); // stampo chiavi oggetto
+                        // console.log(linguaggio.bandiera); // stampo chiavi oggetto
                         if (codiceLingueApi == codiceLingua) {
                             bandieraCheck = bandieraImg; // senza VAR perchè richiamiamo una VAR universale
                         }
 
                     }
+
+                    var iesimeLocandine = film.poster_path; // assegno VAR iesima locandina
+                    var imgCompleta = "https://image.tmdb.org/t/p/w342/" + iesimeLocandine; // aggiungo URL per rendere IMG completa
+                    console.log(imgCompleta);
+                    console.log(iesimeLocandine);
+                        if (iesimeLocandine == null) { // se iesimaLoc non ha riposta
+                            imgCompleta = 'https://critics.io/img/movies/poster-placeholder.png'; // rendo l'img completa un placeholder
+                        }
+
                     var filmSerieTemplate = {
-                        locandina: film.poster_path, // chiave = alla chive poster raggiunta con il dot notation (oggetti)
+                        locandina: imgCompleta, // chiave = alla chive poster raggiunta con il dot notation (oggetti)
                         titolo: film.title,
                         titoloOriginale: film.original_title,
                         linguaOriginale: bandieraCheck,
@@ -129,7 +138,7 @@ function getFilm(inputF, lingua, database){
                         titoloSerieOriginale: film.original_name
 
                     };
-                    // console.log(filmTemplate);
+
                     var templatePop = template(filmSerieTemplate); // popolo con il template con le le chiavi degli oggetti(album)
                     $(".gabbia").append(templatePop); // inseriamo il ns Template popolato nell HTML
 
@@ -142,22 +151,6 @@ function getFilm(inputF, lingua, database){
     });
 };
 
-getFlag();
-
-function getFlag(lingue, ) {
-    for (var i = 0; i < lingue.length; i++) {
-        var linguaggio = lingue[i];
-        console.log(linguaggio); // stampo oggetto che contiene lingua e bandiera
-        var codiceLingua = linguaggio.lingua;
-        console.log(linguaggio.lingua); // stampo oggetti
-        var bandieraImg = linguaggio.bandiera;
-        console.log(linguaggio.bandiera); // stampo chiavi oggetto
-        if (codiceLingueApi == codiceLingua) {
-            bandieraCheck = bandieraImg; // senza VAR perchè richiamiamo una VAR universale
-        }
-
-    }
-};
 
 function getStar(votoRitorno) {
     var valutazioneStel = Math.ceil(votoRitorno / 2);
