@@ -28,13 +28,11 @@ $("#ricerca").keypress(function(event){ // se siamo dentro l'INPUT e clicclo ent
     }
 });
 
-
 var source =  $('#template-film').html();  // con JQ inserisco ID template creato in HTML
 var template = Handlebars.compile(source);   // HB lo gestisce
 
 var source =  $('#template-placeholder').html();  // con JQ inserisco ID template creato in HTML
 var templatePlace = Handlebars.compile(source);   // HB lo gestisce
-
 
 //FUNZIONI
 function getFilm(inputF, lingua, database){
