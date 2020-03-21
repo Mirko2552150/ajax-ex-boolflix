@@ -40,7 +40,7 @@ function getFilm(inputF, lingua, database){
                 // console.log(this); // sono i film ricercati
                 $(this).each(function(){ // cuciamo dentro gli oggetti e assegno ad un ogg le chiavi che mi interessano
                     // console.log(filmTemplate.voto); // stampo i voti dei film cercati
-                    var valutazioneStelle = Math.ceil(film.vote_average / 2);
+                    var valutazioneStelle = getStar(film.vote_average);
                     // console.log(valutazioneStelle);
                     var stelle = ''; // creo Var stelle vuota
                     for (var i = 1; i <= 5; i++) { // faccio 5 cicli = al numero di stelline
@@ -55,7 +55,6 @@ function getFilm(inputF, lingua, database){
                     // console.log(stella);
 
                     var codiceLingueApi = film.original_language; // dato di risposta Api
-
                     var lingue = [
                         {
                             lingua: "en",
@@ -141,4 +140,26 @@ function getFilm(inputF, lingua, database){
             alert("ERRORRRRRRRRRRRRRRRRRR");
         }
     });
+};
+
+getFlag();
+
+function getFlag(lingue, ) {
+    for (var i = 0; i < lingue.length; i++) {
+        var linguaggio = lingue[i];
+        console.log(linguaggio); // stampo oggetto che contiene lingua e bandiera
+        var codiceLingua = linguaggio.lingua;
+        console.log(linguaggio.lingua); // stampo oggetti
+        var bandieraImg = linguaggio.bandiera;
+        console.log(linguaggio.bandiera); // stampo chiavi oggetto
+        if (codiceLingueApi == codiceLingua) {
+            bandieraCheck = bandieraImg; // senza VAR perchè richiamiamo una VAR universale
+        }
+
+    }
+};
+
+function getStar(votoRitorno) {
+    var valutazioneStel = Math.ceil(votoRitorno / 2);
+    return valutazioneStel;
 };

@@ -6,12 +6,18 @@
         <script src="https://kit.fontawesome.com/e28dfdf91d.js" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body>
         <header>
-            <input id="ricerca" placeholder="Cerca Film o Serie">
-            <button type="button" name="button">FIND</button>
+            <div class="logo">
+                <h2>BOOLFLIX</h2>
+            </div>
+            <div class="research">
+                <input id="ricerca" placeholder="Cerca Film o Serie">
+                <button type="button" name="button">FIND</button>
+            </div>
         </header>
         <div class="container">
             <div class="gabbia">
@@ -25,19 +31,19 @@
                 </div>
                 <div class="overlay">
                     <div class="ov-lay uno">
-                        <strong>{{titolo}}{{titoloSerie}}</strong>
+                        <strong>Titolo: </strong><span>{{titolo}}{{titoloSerie}}</span>
                     </div>
                     <div class="ov-lay due">
-                        <strong>{{titoloOriginale}}{{titoloSerieOriginale}}</strong>
+                        <strong>Titolo Originale: </strong><span>{{titoloOriginale}}{{titoloSerieOriginale}}</span>
                     </div>
                     <div class="ov-lay tre">
-                        <small>{{{voto}}}</small>
+                        <strong>Voto: </strong><small>{{{voto}}}</small>
                     </div>
                     <div class="ov-lay quattro">
-                        <small>{{overview}}</small>
+                        <strong>Trama: </strong><small>{{overview}}</small>
                     </div>
                     <div class="ov-lay cinque">
-                        <small>{{{linguaOriginale}}}</small>
+                        <strong>Lingua Originale: </strong><small>{{{linguaOriginale}}}</small>
                     </div>
                 </div>
             </div>
