@@ -34,9 +34,9 @@ header {
 .scheda {
     /* flex-basis: 200px; */
     width: 250px;
-    height: 380px;
+    height: 350px;
     background-color: black;
-    margin: 15px 1px;
+    margin: 2px;
     cursor: pointer;
     display: flex;
     flex-direction: column;
@@ -44,21 +44,20 @@ header {
     position: relative;
     overflow: hidden;
     color: white;
-    border-radius: 1px;
 
 }
 
 
 .img-box img {
     width: 250px;
-    height: 380px;
+    height: 350px;
     z-index: 999;
 
 }
 
 .img-box {
     width: 250px;
-    height: 380px;
+    height: 350px;
     z-index: 999;
 }
 
@@ -94,7 +93,7 @@ header button {
 
 .overlay {
     width: 250px;
-    height: 380px;
+    height: 350px;
     border-radius: 5.5px;
     margin: 10px;
     cursor: pointer;
