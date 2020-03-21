@@ -14,6 +14,21 @@ $("button").click(function(){
 
 });
 
+$("#ricerca").keypress(function(event){ // se siamo dentro l'INPUT e clicclo enter allora fai funzione INVIA MESSAGGIO
+    if (event.keyCode == 13) {
+        var inputFilm = $("#ricerca").val(); // prendo il valore del INPUT ricerca
+        var linguaIta = "it-IT"; // variabile linguaB
+        var dataBaseFilm = "https://api.themoviedb.org/3/search/movie";
+        var dataBaseSerie = "https://api.themoviedb.org/3/search/tv";
+
+        $('#ricerca').val(''); // cancello subito dopo il campo ricerca
+        getFilm(inputFilm, linguaIta, dataBaseFilm); // cerca FILM
+        getFilm(inputFilm, linguaIta, dataBaseSerie); // poi Serie
+        $(".gabbia").html(""); // ci permette di rifare le ricerche senza aggiornare
+    }
+});
+
+
 var source =  $('#template-film').html();  // con JQ inserisco ID template creato in HTML
 var template = Handlebars.compile(source);   // HB lo gestisce
 
@@ -150,7 +165,6 @@ function getFilm(inputF, lingua, database){
         }
     });
 };
-
 
 function getStar(votoRitorno) {
     var valutazioneStel = Math.ceil(votoRitorno / 2);

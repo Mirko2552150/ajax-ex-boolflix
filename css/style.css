@@ -32,9 +32,8 @@ header {
 }
 
 .scheda {
-    /* flex-basis: 200px; */
     width: 250px;
-    height: 350px;
+    height: 380px;
     background-color: black;
     margin: 2px;
     cursor: pointer;
@@ -48,17 +47,15 @@ header {
 }
 
 
-.img-box img {
+.scheda img {
     width: 250px;
-    height: 350px;
-    z-index: 999;
+    height: 380px;
 
 }
 
 .img-box {
     width: 250px;
-    height: 350px;
-    z-index: 999;
+    height: 380px;
 }
 
 .img-box:hover {
@@ -93,14 +90,16 @@ header button {
 
 .overlay {
     width: 250px;
-    height: 350px;
+    height: 380px;
     border-radius: 5.5px;
-    margin: 10px;
+    padding: 10px;
     cursor: pointer;
     flex-direction: column;
     align-items: center;
     position: absolute;
-    z-index: 900;
+    top: 0;
+    left: 0;
+
 
 }
 
@@ -108,7 +107,6 @@ header button {
     width: 100%;
     font-size: 14px;
     padding: 5px;
-
 
 }
 
