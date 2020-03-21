@@ -10,6 +10,14 @@ header {
     height: 80px;
     background-color: black;
     cursor: pointer;
+
+}
+
+.bg-header {
+    height: 300px;
+    background-color: white;
+    background-image: url("https://www.myanmore.com/wp-content/uploads/2019/05/netflix-background-9.jpg");
+
 }
 
 .container {
@@ -108,7 +116,7 @@ header button {
 }
 
 .quattro {
-    max-height: 50%;
+    max-height: 60%;
     overflow-y: hidden;
 
 }
@@ -130,17 +138,43 @@ header button {
     height: 100%;
     color: red;
     float: left;
-    width: 33.33%;
+    width: calc(100% / 3);
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     font-size: 22px;
 }
 
+.logo h2 {
+    padding-left: 10px;
+}
+
 .research {
     height: 100%;
-    width: 33.33%;
+    width: calc(100% / 3);
     display: flex;
     justify-content: center;
     align-items: center;
+    float: left;
+}
+
+.utente {
+    height: 100%;
+    width: calc(100% / 3);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    float: left;
+}
+
+.utente img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.utente i {
+    font-size: 30px;
+    color: white;
+    padding-right: 30px;
 }
