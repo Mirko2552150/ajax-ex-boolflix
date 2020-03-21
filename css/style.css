@@ -35,7 +35,7 @@ header {
     width: 250px;
     height: 380px;
     background-color: black;
-    margin: 2px;
+    margin: 15px 2px;
     cursor: pointer;
     display: flex;
     flex-direction: column;
@@ -43,6 +43,7 @@ header {
     position: relative;
     overflow: hidden;
     color: white;
+    border-radius: 2px;
 
 }
 
@@ -50,16 +51,12 @@ header {
 .scheda img {
     width: 250px;
     height: 380px;
+    z-index: 999;
 
 }
 
-.img-box {
-    width: 250px;
-    height: 380px;
-}
-
-.img-box:hover {
-    display: none;
+.scheda:hover img {
+    z-index: 0;
 
 }
 
@@ -91,7 +88,7 @@ header button {
 .overlay {
     width: 250px;
     height: 380px;
-    border-radius: 5.5px;
+    border-radius: 2px;
     padding: 10px;
     cursor: pointer;
     flex-direction: column;
@@ -99,6 +96,7 @@ header button {
     position: absolute;
     top: 0;
     left: 0;
+    background-color: black;
 
 
 }
@@ -121,6 +119,7 @@ header button {
     height: 25px;
     position: relative;
     top: 8px;
+    z-index: 0;
 
 }
 
