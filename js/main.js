@@ -28,6 +28,11 @@ $("#ricerca").keypress(function(event){ // se siamo dentro l'INPUT e clicclo ent
     }
 });
 
+$(".fa-grip-lines").click(function(){
+    $(".slide").slideToggle();
+    $(this).toggleClass('ruota'); //riapro quello che ho cliccato
+});
+
 var source =  $('#template-film').html();  // con JQ inserisco ID template creato in HTML
 var template = Handlebars.compile(source);   // HB lo gestisce
 
