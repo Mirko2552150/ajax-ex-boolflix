@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <title>BOOLFLIX</title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"/>
         <script src="https://kit.fontawesome.com/e28dfdf91d.js" crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.js"></script>
@@ -41,16 +42,16 @@
                         </div>
                     <div class="mid">
                         <div class="box-mid">
-                            <i class="fas fa-search"></i><input id="ricerca-due" placeholder="Cerca Film o Serie"><button type="button" name="button">GO</button><p class="scritta-cerca">Search</p>
+                            <i class="fas fa-search"></i><input id="ricerca-due" placeholder="Cerca Film o Serie"><button type="button" name="button">GO</button><span class="scritta-cerca">Search</span>
                         </div>
                         <div class="box-mid">
-                            <i class="fas fa-video"></i><p>Movies</p>
+                            <i class="fas fa-video"></i><span>Movies</span>
                         </div>
                         <div class="box-mid">
-                            <i class="fas fa-tv"></i><p>Series</p>
+                            <i class="fas fa-tv"></i><span>Series</span>
                         </div>
                         <div class="box-mid">
-                            <i class="fas fa-list"></i><p>My List</p>
+                            <i class="fas fa-list"></i><span>My List</span>
                         </div>
                     </div>
                     <div class="low">
@@ -64,6 +65,31 @@
             <div class="gabbia">
             </div>
         </div>
+        <div class="containers">
+            <div class="faq-toggle">
+                <div class="question">
+                    <h3>Cos'è Boolflix?</h3>
+                    <p>Boolflix è un servizio di streaming che offre una varietà di serie TV, film, documentari pluripremiati e tanto altro su una vasta gamma di dispositivi connessi a Internet. Guarda quello che vuoi, in qualsiasi momento e senza interruzioni pubblicitarie. Il tutto a una quota mensile ridotta. C'è sempre qualcosa di nuovo da scoprire: aggiungiamo nuovi film e serie TV ogni settimana!</p>
+                </div>
+                <div class="question">
+                    <h3>Quanto costa Boolflix?</h3>
+                    <p>Guarda Boolflix su smartphone, tablet, Smart TV, laptop o dispositivi per lo streaming, il tutto per un piccolo importo mensile fisso. Piani a partire da 7,99 € al mese. Nessun costo né contratto aggiuntivi.</p>
+                </div>
+                <div class="question">
+                    <h3>Dove posso guardare Boolflix</h3>
+                    <p>Guarda ciò che vuoi, dove vuoi, quando vuoi su un numero illimitato di dispositivi. Accedi al tuo account per guardare subito Boolflix dal tuo computer su Boolflix.com oppure da qualsiasi dispositivo connesso a Internet che supporta l'app Boolflix, come smart TV, smartphone, tablet, lettori multimediali per streaming e console per videogiochi. Con l'app per iOS, Android e Windows 10 puoi anche scaricare i tuoi programmi preferiti. Usa la funzionalità di download per guardare i contenuti mentre sei in viaggio e senza connessione a Internet. Porta Boolflix sempre con te.</p>
+                </div>
+                <div class="question">
+                    <h3>Come posso disdire?</h3>
+                    <p>Boolflix è flessibile. Nessun contratto fastidioso e nessun impegno. Puoi facilmente disdire il tuo contratto online con due clic. Nessuna penale: attiva o disdici il tuo account in qualsiasi momento.</p>
+                </div>
+                <div class="question">
+                    <h3>Cosa posso guardare su BoolFlix</h3>
+                    <p>Boolflix ha un nutrito catalogo di lungometraggi, documentari, serie TV, anime, originali Boolflix pluripremiati e tanto altro. Guarda tutto quello che vuoi, in qualsiasi momento.</p>
+                </div>
+            </div>
+        </div>
+
         <script id="template-film" type="text/x-handlebars-template">
             <div class="scheda">
                 <img src="{{locandina}}" alt="{{locandina}}">

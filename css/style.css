@@ -239,7 +239,7 @@ header button {
     border-left: 2px solid red;
 }
 
-.box-mid p {
+.box-mid span {
     padding: 10px;
 }
 
@@ -304,5 +304,61 @@ header button {
     display: flex;
     justify-content: center;
     align-items: center;
+
+}
+
+/*  */
+
+.containers {
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+}
+
+.faq-toggle {
+    width: 700px;
+    background-color: #494949;
+
+}
+
+p {
+    display: none;
+
+}
+
+.question {
+    padding: 10px 5px;
+    border-top: 6px solid black;
+    cursor: pointer;
+
+}
+
+.question h3 {
+    font-family: sans-serif;
+    font-weight: 200;
+    text-transform: uppercase;
+    color: lightgray;
+
+}
+
+.question p {
+    padding: 10px 0;
+    color: lightgray;
+
+}
+
+.question h3::after {
+    font-family: "Font Awesome 5 Free";
+    content: '\f107';
+    font-weight: 900;
+    float: right;
+    transition: transform 0.5s;
+
+}
+
+.question h3.fruota::after {
+    transform: rotate(180deg);
 
 }

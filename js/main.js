@@ -40,11 +40,29 @@ $(".fa-search").click(function(){
 
 });
 
+$('.question').click(function(){ // prendiamo il CLICK su tutto il .question / con children selezioniamo il filgio diretto
+
+    if($(this).children('p').is(':visible')) { // se p è visibile (True False)
+        $(this).children('p').slideUp(500); // faccio lo slideUp = a toggle perchè lo riconosce
+
+        $(this).children('h3').removeClass('fruota'); // se è giu alzale tutte le freccette
+    } else { // altrimente se p non è visibile
+        $('.question').children('p').slideUp(500); // slideUp per chiudere tutte le finestre
+        $(this).children('p').slideToggle(500); // prendo solo l'elelemnto selezionato si apriva
+
+        $('.question').children('h3').removeClass('fruota'); // ruota tutto verso l'alto
+        $(this).children('h3').addClass('fruota'); //riapro quello che ho cliccato
+    }
+ });
+
 var source =  $('#template-film').html();  // con JQ inserisco ID template creato in HTML
 var template = Handlebars.compile(source);   // HB lo gestisce
 
 var source =  $('#template-placeholder').html();  // con JQ inserisco ID template creato in HTML
 var templatePlace = Handlebars.compile(source);   // HB lo gestisce
+
+
+
 
 //FUNZIONI
 function getFilm(inputF, lingua, database){
