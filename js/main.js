@@ -16,7 +16,7 @@ $(".box-mid button").click(function(){
 
 $("#ricerca-due").keypress(function(event){ // se siamo dentro l'INPUT e clicclo enter allora fai funzione INVIA MESSAGGIO
     if (event.keyCode == 13) {
-        var inputFilm = $("#ricerca").val(); // prendo il valore del INPUT ricerca
+        var inputFilm = $("#ricerca-due").val(); // prendo il valore del INPUT ricerca
         var linguaIta = "it-IT"; // variabile linguaB
         var dataBaseFilm = "https://api.themoviedb.org/3/search/movie";
         var dataBaseSerie = "https://api.themoviedb.org/3/search/tv";
