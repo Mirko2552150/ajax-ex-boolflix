@@ -269,3 +269,23 @@ header button {
 .ruota {
     transform: rotate(50deg);
 }
+
+#ricerca-due {
+    display: none;
+    height: 40px;
+    width: 180px;
+    border-radius: 5px;
+    padding: 10px;
+    border: 2px solid white;
+    margin-left: 5px;
+}
+
+.box-mid button {
+    height: 40px;
+    width: 50px;
+    border-radius: 5px;
+    padding: 3px;
+    margin-left: 5px;
+    border: 2px solid #f0f0f0;
+    display: none;
+}

@@ -33,6 +33,15 @@ $(".fa-grip-lines").click(function(){
     $(this).toggleClass('ruota'); //riapro quello che ho cliccato
 });
 
+$(".fa-search").click(function(){
+    $("#ricerca-due").slideToggle();
+    $(".box-mid button").slideToggle();
+    $(".scritta-cerca").slideToggle();
+
+});
+
+
+
 var source =  $('#template-film').html();  // con JQ inserisco ID template creato in HTML
 var template = Handlebars.compile(source);   // HB lo gestisce
 
