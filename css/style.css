@@ -181,7 +181,7 @@ header button {
     padding-right: 30px;
 }
 
-.slide  {
+.slide {
     width: 30%;
     min-height: 100vh;
     height: 100vh;
@@ -194,7 +194,7 @@ header button {
     flex-direction: column;
     justify-content: space-between;
     display: none;
-    transition: transform 1s;
+    transition: transform 0.5s;
 
 }
 
@@ -279,7 +279,7 @@ header button {
     padding: 10px;
     border: 2px solid white;
     margin-left: 5px;
-    
+
 }
 
 .box-mid button {
@@ -290,4 +290,19 @@ header button {
     margin-left: 5px;
     border: 2px solid #f0f0f0;
     display: none;
+}
+
+.rettangolo {
+    width: 30.5px;
+    height: 13px;
+    background-color: white;
+    position: relative;
+    border-radius: 1px;
+    top: -8px;
+    font-size: 8px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }

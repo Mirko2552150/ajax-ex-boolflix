@@ -28,9 +28,9 @@ $("#ricerca-due").keypress(function(event){ // se siamo dentro l'INPUT e clicclo
     }
 });
 
-$(".fa-grip-lines").click(function(){
+$(".movie-player").click(function(){
     $(".slide").slideToggle();
-    $(this).toggleClass('ruota'); //riapro quello che ho cliccato
+    $(".fa-grip-lines").toggleClass('ruota'); //riapro quello che ho cliccato
 });
 
 $(".fa-search").click(function(){
@@ -39,8 +39,6 @@ $(".fa-search").click(function(){
     $(".scritta-cerca").slideToggle();
 
 });
-
-
 
 var source =  $('#template-film').html();  // con JQ inserisco ID template creato in HTML
 var template = Handlebars.compile(source);   // HB lo gestisce
