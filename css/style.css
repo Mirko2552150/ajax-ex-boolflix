@@ -22,14 +22,14 @@ header {
 }
 
 .container {
-    width: 100vw;
+    width: 100%;
     min-height: 100vh;
     background-color: #494949;
 
 }
 
 .gabbia {
-    width: 100vw;
+    width: 100%;
     min-height: 100vh;
     background-color: #494949;
     margin: 0 auto;
@@ -194,7 +194,6 @@ header button {
     flex-direction: column;
     justify-content: space-between;
     display: none;
-    transition: transform 0.5s;
 
 }
 
@@ -232,6 +231,11 @@ header button {
     display: flex;
     align-items: center;
     padding-left: 10px;
+}
+
+.fa-tv {
+    font-size: 27px;
+
 }
 
 .box-mid:hover {
@@ -339,13 +343,13 @@ p {
     font-family: sans-serif;
     font-weight: 200;
     text-transform: uppercase;
-    color: lightgray;
+    color: white;
 
 }
 
 .question p {
     padding: 10px 0;
-    color: lightgray;
+    color: white;
 
 }
 

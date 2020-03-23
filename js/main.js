@@ -31,6 +31,14 @@ $("#ricerca-due").keypress(function(event){ // se siamo dentro l'INPUT e clicclo
 $(".movie-player").click(function(){
     $(".slide").slideToggle();
     $(".fa-grip-lines").toggleClass('ruota'); //riapro quello che ho cliccato
+    if ($("#ricerca-due, .bottone").is(':visible')) {
+        $("#ricerca-due").slideUp();
+        $(".bottone").slideUp();
+
+    } else if ($(".box-mid span").is(':hidden')) {
+        $(".box-mid span").slideDown();
+    }
+
 });
 
 $(".fa-search").click(function(){
@@ -60,9 +68,6 @@ var template = Handlebars.compile(source);   // HB lo gestisce
 
 var source =  $('#template-placeholder').html();  // con JQ inserisco ID template creato in HTML
 var templatePlace = Handlebars.compile(source);   // HB lo gestisce
-
-
-
 
 //FUNZIONI
 function getFilm(inputF, lingua, database){
