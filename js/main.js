@@ -28,6 +28,50 @@ $("#ricerca-due").keypress(function(event){ // se siamo dentro l'INPUT e clicclo
     }
 });
 
+var sourceC =  $('#cast-template').html();  // con JQ inserisco ID template creato in HTML
+var templateC = Handlebars.compile(sourceC);   // HB lo gestisce
+
+// "https://api.themoviedb.org/3/   movie/   38286?   api_key=d87d7ade57c8a0d41eff8b91d540d707   &append_to_response=credits"
+// document on clik
+// this
+$(document).on('click', '.scheda', function(){ // analizza tutto il documento, ON (accadere di un evento scatena una funzione, dove tra le vorgolette)
+    // console.log(this);
+    var idMovie = $(this).data("identificativo");
+    // console.log(idMovie);
+    var apiKey = "d87d7ade57c8a0d41eff8b91d540d707&append_to_response=credits"; // append per prendere i credits
+    var dataBaseRicerca = "https://api.themoviedb.org/3/movie/" + idMovie + "?api_key=" + apiKey;
+    // console.log(dataBaseRicerca);
+    $(".container-cast").slideToggle();
+    $.ajax({
+        url: dataBaseRicerca,
+        method: "GET",
+        success: function (data) {
+            // console.log(data); // il contenuto della risposta
+            var crediti = data.credits;
+            console.log(crediti.cast);
+            var castFilm = crediti.cast;
+            for (var i = 0; i < 5; i++) {
+                console.log(castFilm[i]);
+                var datiAttore = castFilm[i];
+                var castTemplate = {
+                    nomePersonaggio: datiAttore.character, // chiave = alla chive poster raggiunta con il dot notation (oggetti)
+                    nomeAttore: datiAttore.name,
+                    imgAttore: datiAttore.profile_path
+
+                };
+
+                var templatePc = templateC(castTemplate); // popolo con il template con le le chiavi degli oggetti(album)
+                $(".gabbia-cast").append(templatePc); // inseriamo il ns Template popolato nell HTML
+            }
+
+        },
+        error: function() {
+            alert("ERRORRRRRRRRRRRRRRRRRR");
+        }
+    });
+
+});
+
 $(".movie-player").click(function(){
     $(".slide").slideToggle();
     $(".fa-grip-lines").toggleClass('ruota'); //riapro quello che ho cliccato
@@ -66,9 +110,6 @@ $('.question').click(function(){ // prendiamo il CLICK su tutto il .question / c
 var source =  $('#template-film').html();  // con JQ inserisco ID template creato in HTML
 var template = Handlebars.compile(source);   // HB lo gestisce
 
-var source =  $('#template-placeholder').html();  // con JQ inserisco ID template creato in HTML
-var templatePlace = Handlebars.compile(source);   // HB lo gestisce
-
 //FUNZIONI
 function getFilm(inputF, lingua, database){
     $.ajax({
@@ -77,6 +118,7 @@ function getFilm(inputF, lingua, database){
             api_key: "d87d7ade57c8a0d41eff8b91d540d707",
             query: inputF,
             language: lingua
+
         },
         method: "GET",
         success: function (data) {
@@ -97,6 +139,9 @@ function getFilm(inputF, lingua, database){
                             var stella = '<i class="fas fa-star"></i>';
                         } else {
                             var stella = '<i class="far fa-star"></i>'; // dopo  stampa stellina vuota
+                            // console.log(stella);
+                            $(".far.fa-star").css("color", "white");
+
                         }
                         stelle += stella; // aggiunge alla var stelle le icone uno accanto all'altra con +=
                     }
@@ -166,8 +211,8 @@ function getFilm(inputF, lingua, database){
 
                     var iesimeLocandine = film.poster_path; // assegno VAR iesima locandina
                     var imgCompleta = "https://image.tmdb.org/t/p/w342/" + iesimeLocandine; // aggiungo URL per rendere IMG completa
-                    console.log(imgCompleta);
-                    console.log(iesimeLocandine);
+                    // console.log(imgCompleta);
+                    // console.log(iesimeLocandine);
                         if (iesimeLocandine == null) { // se iesimaLoc non ha riposta
                             imgCompleta = 'https://critics.io/img/movies/poster-placeholder.png'; // rendo l'img completa un placeholder
                         }
@@ -183,12 +228,13 @@ function getFilm(inputF, lingua, database){
                         voto: stelle,
                         overview: film.overview,
                         titoloSerie: film.name,
-                        titoloSerieOriginale: film.original_name
+                        titoloSerieOriginale: film.original_name,
+                        identificativo: film.id
 
                     };
-
                     var templatePop = template(filmSerieTemplate); // popolo con il template con le le chiavi degli oggetti(album)
                     $(".gabbia").append(templatePop); // inseriamo il ns Template popolato nell HTML
+                    // console.log(filmSerieTemplate.identicativo);
 
                 });
             };

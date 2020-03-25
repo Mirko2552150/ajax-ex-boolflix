@@ -15,13 +15,6 @@
             <header>
                 <div class="logo">
                     <h2>BOOLFLIX</h2>
-                    <!-- <select class="selettore-genere" name="">
-                        <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>
-                    </select> -->
                 </div>
                 <div class="research">
                     <input id="ricerca" placeholder="Cerca Film o Serie">
@@ -72,6 +65,11 @@
             <div class="gabbia">
             </div>
         </div>
+        <div class="container-cast">
+            <div class="gabbia-cast">
+
+            </div>
+        </div>
         <div class="containers">
             <div class="faq-toggle">
                 <div class="question">
@@ -98,7 +96,7 @@
         </div>
 
         <script id="template-film" type="text/x-handlebars-template">
-            <div class="scheda">
+            <div class="scheda" data-identificativo="{{identificativo}}">
                 <img src="{{locandina}}" alt="{{locandina}}">
                 <div class="overlay">
                     <div class="ov-lay uno">
@@ -117,6 +115,14 @@
                         <strong>Lingua Originale: </strong><small>{{{linguaOriginale}}}</small>
                     </div>
                 </div>
+            </div>
+        </script>
+
+        <script id="cast-template" type="text/x-handlebars-template">
+            <div class="box-cast">
+                <strong>Nome Personaggio: </strong><p>{{nomePersonaggio}}</p>
+                <strong>Nome Attore: </strong><p>{{nomeAttore}}</p>
+                <img src="https://image.tmdb.org/t/p/w342/{{imgAttore}}" alt="https://image.tmdb.org/t/p/w342/{{imgAttore}}">
             </div>
         </script>
 
