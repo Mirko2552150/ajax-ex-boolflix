@@ -42,6 +42,7 @@ $(document).on('click', '.scheda', function(){ // analizza tutto il documento, O
     var dataBaseRicerca = "https://api.themoviedb.org/3/movie/" + idMovie + "?api_key=" + apiKey;
     // console.log(dataBaseRicerca);
     $(".container-cast").slideToggle();
+    $(".gabbia-cast").empty();  // cancello in cotenuto del div (che contiene la card degli attori) ad ogni click
     $.ajax({
         url: dataBaseRicerca,
         method: "GET",
@@ -59,6 +60,7 @@ $(document).on('click', '.scheda', function(){ // analizza tutto il documento, O
                     imgAttore: datiAttore.profile_path
 
                 };
+
 
                 var templatePc = templateC(castTemplate); // popolo con il template con le le chiavi degli oggetti(album)
                 $(".gabbia-cast").append(templatePc); // inseriamo il ns Template popolato nell HTML
@@ -206,7 +208,7 @@ function getFilm(inputF, lingua, database){
                         if (codiceLingueApi == codiceLingua) {
                             bandieraCheck = bandieraImg; // senza VAR perchè richiamiamo una VAR universale
                         }
-                        
+
                     }
 
                     var iesimeLocandine = film.poster_path; // assegno VAR iesima locandina
