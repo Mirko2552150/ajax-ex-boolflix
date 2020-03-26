@@ -206,7 +206,7 @@ function getFilm(inputF, lingua, database){
                         if (codiceLingueApi == codiceLingua) {
                             bandieraCheck = bandieraImg; // senza VAR perchè richiamiamo una VAR universale
                         }
-
+                        
                     }
 
                     var iesimeLocandine = film.poster_path; // assegno VAR iesima locandina
