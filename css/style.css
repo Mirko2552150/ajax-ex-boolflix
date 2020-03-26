@@ -179,6 +179,8 @@ header button {
     font-size: 30px;
     color: white;
     padding-right: 37px;
+    cursor: pointer;
+
 }
 
 .slide {
@@ -226,6 +228,7 @@ header button {
     height: 40%;
     color: white;
     font-size: 30px;
+
 
 }
 
