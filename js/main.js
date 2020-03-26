@@ -61,7 +61,6 @@ $(document).on('click', '.scheda', function(){ // analizza tutto il documento, O
 
                 };
 
-
                 var templatePc = templateC(castTemplate); // popolo con il template con le le chiavi degli oggetti(album)
                 $(".gabbia-cast").append(templatePc); // inseriamo il ns Template popolato nell HTML
             }
